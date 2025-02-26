@@ -380,4 +380,4 @@ AZURE_STATIC_CONTAINER=''
 
 ## License
 
-MIT
+GNU General Public License v3 or later (GPL-3.0+)
