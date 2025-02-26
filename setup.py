@@ -14,7 +14,7 @@ setup(
     description="A Django project setup automation tool",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/eliHeist/django_setup",  # Change this if you publish it
+    url="https://github.com/eliHeist/django_setup.git",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: GNU General Public License",
