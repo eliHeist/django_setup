@@ -11,7 +11,7 @@ A command-line utility that simplifies Django project initialization and applica
 ## Installation
 
 ```bash
-pip install django_setup
+pip install djangosetupheist
 ```
 
 ## Usage

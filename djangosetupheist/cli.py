@@ -1,8 +1,8 @@
 import argparse
 import os
 import re
-from django_setup.methods import get_settings_folder
-from django_setup.utils import setup_project, startapp
+from djangosetupheist.methods import get_settings_folder
+from djangosetupheist.utils import setup_project, startapp
 
 def main():
     parser = argparse.ArgumentParser(description="Django Project Setup Tool")
