@@ -1,3 +1,3 @@
 include README.md
 include LICENSE
-recursive-include django_setup *
+recursive-include djangosetupheist *
