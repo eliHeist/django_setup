@@ -10,7 +10,7 @@ setup(
             "djs=djangosetupheist.cli:main",
         ],
     },
-    author="DakDot",
+    author="eliHeist",
     description="A Django project setup automation tool",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
