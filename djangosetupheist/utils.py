@@ -2,11 +2,11 @@ import os, random, string, re
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-def setup_project(project_name, folder):
-    settings_app_path = os.path.join(folder, project_name) if folder else ''
-
+def setup_project(project_name):
     # Run `django-admin startproject`
-    os.system(f"django-admin startproject {project_name} {folder}")
+    os.system(f"django-admin startproject {project_name} .")
+
+    settings_app_path = os.path.join(os.getcwd(), project_name)
 
     # Set up `.env` file
     # get env
@@ -68,14 +68,15 @@ def setup_project(project_name, folder):
 
 
 def startapp(full_app_name, settings_folder):
+    settings_folder = os.path.join(os.getcwd(), settings_folder)
     is_multi_dirs = "." in full_app_name
     
     if is_multi_dirs:
         *folders, simple_app_name = full_app_name.split(".")
-        app_folder = os.path.join(*folders, simple_app_name)
+        app_folder = os.path.join(os.getcwd(), *folders, simple_app_name)
     else:
         simple_app_name = full_app_name
-        app_folder = os.path.join(full_app_name)
+        app_folder = os.path.join(os.getcwd(), full_app_name)
     
     print(f"creating app in '{app_folder}'")
     
@@ -121,7 +122,7 @@ def startapp(full_app_name, settings_folder):
     
 
 
-def generate_secret_key(length=32):
+def generate_secret_key(length=64):
     characters = string.ascii_letters + string.digits + string.punctuation
     secret_key = "".join(random.choice(characters) for _ in range(length))
     return secret_key

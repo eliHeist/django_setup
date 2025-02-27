@@ -29,9 +29,8 @@ def main():
                 print("❌ Project name cannot contain spaces or special characters (only letters and numbers).")
                 project_name = None
         
-        folder = '.'
 
-        setup_project(project_name, folder)
+        setup_project(project_name)
 
     elif args.command == "startapp":
         # check if there is a manage.py file in the current directory
