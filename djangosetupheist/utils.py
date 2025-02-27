@@ -93,6 +93,19 @@ def startapp(full_app_name, settings_folder):
     # create templates directory in app
     os.makedirs(os.path.join(app_folder, f"templates/{simple_app_name}/"), exist_ok=True)
     
+    # get apps.py sample
+    apps_sample_path = os.path.join(BASE_DIR, "assets/apps.py")
+    with open(apps_sample_path, "r") as apps_file:
+        apps_text = apps_file.read()
+        
+    
+    # update apps.py
+    apps_path = os.path.join(app_folder, "apps.py")
+    with open(apps_path, "w") as apps_file:
+        apps_text = apps_text.replace("app_name_replace", full_app_name)
+        apps_text = apps_text.replace("App_name_replace", simple_app_name.capitalize())
+        apps_file.write(apps_text)
+    
     # get urls.py sample
     urls_sample_path = os.path.join(BASE_DIR, "assets/app_urls.py")
     with open(urls_sample_path, "r") as urls_file:
