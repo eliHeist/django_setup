@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="djangosetupheist",
-    version="0.6.1",
+    version="0.6.2",
     packages=find_packages(),
     install_requires=["django", "django-environ"],
     include_package_data=True,
