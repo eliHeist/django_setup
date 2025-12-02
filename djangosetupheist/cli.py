@@ -63,9 +63,9 @@ def main():
         
         app_name = args.app_name or input("Enter Django app name: ").strip()
 
-        if not app_name:
+        while not app_name:
             print("❌ App name cannot be empty.")
-            return
+            app_name = input("Enter Django app name: ").strip()
 
         # Check for spaces
         if (app_name[0] == "." or app_name[-1] == ".") or not re.match(r"^[a-zA-Z0-9_\-\.]+$", app_name):
