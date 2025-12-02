@@ -39,6 +39,27 @@ def main():
             return
         
         settings_folder = get_settings_folder("manage.py")
+
+        if not settings_folder:
+            while True:
+                project_name = input("Enter your Django project name (the folder containing settings.py): ").strip()
+                
+                # Validate project_name
+                if not project_name or not os.path.isdir(project_name):
+                    print(f"❌ Project folder '{project_name}' does not exist.")
+                    continue  # ask again
+                
+                settings_path = os.path.join(project_name, "settings.py")
+                settings_path_2 = os.path.join(project_name, "settings", "__init__.py")
+                
+                if not os.path.exists(settings_path) and not os.path.exists(settings_path_2):
+                    print(f"❌ No settings.py found inside '{project_name}'. Please provide a valid Django project folder.")
+                    continue  # ask again
+                
+                # If we reach here, it's valid
+                settings_folder = project_name
+                break
+
         
         app_name = args.app_name or input("Enter Django app name: ").strip()
 
